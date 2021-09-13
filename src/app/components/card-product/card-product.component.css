@@ -1,5 +1,6 @@
 .card{
   width: 20rem;
+  margin: 5px;
 }
 
 .btn{
@@ -7,4 +8,14 @@
   border-color: #ff5555;
   color: white;
   float: right;
+}
+
+
+/* small devices: portrait phones */
+@media only screen and (max-width: 1000px){
+  .card{
+      margin: 5px;
+      margin-bottom: 1rem;
+      justify-content: center;
+  }
 }

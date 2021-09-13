@@ -6,14 +6,18 @@ import { CardProductComponent } from './components/card-product/card-product.com
 import { ProductSearchComponent } from './components/product-search/product-search.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { AttributesSearchComponent } from './components/attributes-search/attributes-search.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     CardProductComponent,
     ProductSearchComponent,
     SearchResultComponent,
-    AttributesSearchComponent
+    AttributesSearchComponent,
+    ProductListComponent
 ],
   imports: [
     BrowserModule,
