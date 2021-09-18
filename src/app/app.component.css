@@ -1,4 +1,5 @@
 .container{
+    max-width: 100vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -9,4 +10,22 @@
     .container{
         padding: 0;
     }
+}
+
+/* Background para Footer, Header, etc */
+.custom-components-bg {
+    background-color: #833ab4;
+}
+
+
+/* Botões padrões */
+.default-btn-custom-white {
+    border-color: #fff;
+    color: #fff;
+    background-color: transparent;
+}
+
+.default-btn-custom-white:hover {
+    background-color: white;
+    color: black;
 }

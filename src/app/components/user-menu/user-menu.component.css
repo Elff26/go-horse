@@ -1,0 +1,12 @@
+.custom-icon {
+    height: 25px;
+    cursor: pointer;
+}
+
+.custom-border-btn {
+    padding: 5px;
+}
+
+.custom-border-btn:hover {
+    border: 1px solid white;
+}

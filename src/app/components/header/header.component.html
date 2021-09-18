@@ -1,18 +1,22 @@
-<header class="w-100 bg-custom p-2 d-flex align-items-center">
-    <div class="col-3">
-        <img src="assets/logo.png" alt="GoHorse logo" class="img-fluid logo" (click)="gotoHome()">
+<div class="col-12 fixed-top custom-components-bg p-0">
+    <div class="row d-flex align-items-center p-2">
+        <div class="col-3">
+            <img src="../../../assets/images/logo.png" alt="GoHorse logo" class="img-fluid logo" (click)="gotoHome()">
+        </div>
+    
+        <div class="col-6">
+            <form class="d-flex">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn default-btn-custom-white btn-sm ml-1" type="submit" (click)="onSearch()">Search</button>
+            </form>
+        </div>
+    
+        <div class="col-3 d-flex justify-content-end">
+            <app-user-menu></app-user-menu>
+        </div>
     </div>
 
-    <div class="col-6">
-        <form class="d-flex">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-custom-bg-white btn-sm ml-1" type="submit" (click)="onSearch()">Search</button>
-        </form>
+    <div>
+        <app-menu></app-menu>
     </div>
-
-    <div class="col-3 d-flex justify-content-end">
-        <button type="button" class="btn w-auto h-auto btn-custom-bg-white float-right">
-            Entrar
-        </button>
-    </div>
-</header>
+</div>

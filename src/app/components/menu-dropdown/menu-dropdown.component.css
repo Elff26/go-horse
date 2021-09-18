@@ -1,0 +1,13 @@
+.custom-dropdown-text {
+    color: #333 !important; 
+    font-size: 14px !important;
+}
+
+.custom-dropdown-text:hover {
+    color: #ff5555 !important;
+}
+
+.custom-dropdown-text:active {
+    background-color: white;
+    color: #ff5555;
+}
