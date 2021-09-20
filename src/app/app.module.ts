@@ -13,6 +13,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MenuDropdownComponent } from './components/menu-dropdown/menu-dropdown.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { MyCarComponent } from './components/my-car/my-car.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FooterComponent } from './components/footer/footer.component';
     MenuComponent,
     MenuDropdownComponent,
     UserMenuComponent,
-    FooterComponent
+    FooterComponent,
+    ProductDetailComponent,
+    MyCarComponent
 ],
   imports: [
     BrowserModule,

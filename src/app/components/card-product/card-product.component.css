@@ -3,14 +3,6 @@
   margin: 5px;
 }
 
-.btn{
-  background-color: #ff5555;
-  border-color: #ff5555;
-  color: white;
-  float: right;
-}
-
-
 /* small devices: portrait phones */
 @media only screen and (max-width: 1000px){
   .card{

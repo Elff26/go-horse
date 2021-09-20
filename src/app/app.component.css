@@ -29,3 +29,11 @@
     background-color: white;
     color: black;
 }
+
+/*BOTAO LARANJA*/
+.default-btn{
+    background-color: #ff5555; 
+    border-color: #ff5555;
+    color: white;
+    float: right;
+  }

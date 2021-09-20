@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="container">
+    <h1>Meu Carrinho</h1>
+    <table class="table table-hover m-0">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Descricao</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#1</td>
+            <td>1x</td>
+            <td>Uma descrição bem legal aqui...</td>
+            <td>R$ 00,00</td>
+          </tr>
+          <tr>
+            <td>#2</td>
+            <td>3x</td>
+            <td>Uma descrição bem legal aqui...</td>
+            <td>R$ 00,00</td>
+          </tr>
+          <tr>
+            <td>#3</td>
+            <td>2x</td>
+            <td>Uma descrição bem legal aqui...</td>
+            <td>R$ 00,00</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th style="width: 82vw;">Total</th>
+            <th>R$ 00,00</th>
+          </tr>
+        </thead>
+      </table>
+      <a id="btn-limpar-carrinho" class="btn default-btn m-2">Limpar Carrinho</a>
+      <a routerLink="/home" id="btn-continuar-comprando" class="btn default-btn m-2"> Continuar Comprando</a>
+      <a routerLink="/" id="btn-finalizar-compra" class="btn default-btn m-2">Finalizar Compra</a>
+</div>
+<app-footer></app-footer>
