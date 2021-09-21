@@ -1,22 +1,17 @@
-.container{
-    max-width: 100vw;
+.content {
+    padding-top: 8.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-/* small devices: portrait phones */
-@media only screen and (max-width: 1000px){
-    .container{
-        padding: 0;
-    }
+    align-items: center;
+    margin: auto;
+    width: 90%;
 }
 
 /* Background para Footer, Header, etc */
 .custom-components-bg {
     background-color: #833ab4;
 }
-
 
 /* Botões padrões */
 .default-btn-custom-white {
