@@ -15,6 +15,8 @@ import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { MyCarComponent } from './components/my-car/my-car.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { MyCarComponent } from './components/my-car/my-car.component';
     UserMenuComponent,
     FooterComponent,
     ProductDetailComponent,
-    MyCarComponent
+    MyCarComponent,
+    LoginComponent,
+    RegistrationComponent
 ],
   imports: [
     BrowserModule,

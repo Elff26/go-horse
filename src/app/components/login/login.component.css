@@ -1,0 +1,53 @@
+.content{
+  width: 100vw !important;
+}
+
+.card{
+  margin: 1rem;
+  width: 100vw;
+}
+
+.card-body{
+  display: flex;
+
+}
+
+.input.form-control{
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group-text{
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  color: black;
+}
+
+.content-login{
+  width: 50vw;
+}
+
+.content-registration{
+  width: 50vw;
+  padding: 4rem;
+}
+
+.content-registration-form{
+  width: 100vw;
+
+}
+
+.content-button-registration{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nav-link.active{
+  background-color: #833ab4;
+}
+
+.nav-link{
+  color: black;
+}
