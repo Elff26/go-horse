@@ -31,4 +31,9 @@
     border-color: #ff5555;
     color: white;
     float: right;
-  }
+}
+
+.orange-btn {
+    background-color: #fcb045;
+    margin: 0.5rem; 
+}

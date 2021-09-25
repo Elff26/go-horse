@@ -1,8 +1,8 @@
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle custom-dropdown-text" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ categoria }}
+    <a class="nav-link dropdown-toggle custom-dropdown-text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ category }}
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item custom-dropdown-text" [href]="sc.link" *ngFor="let sc of subcategorias">{{ sc.subcategoria }}</a>
+        <a class="dropdown-item custom-dropdown-text" [routerLink]="sc.link" *ngFor="let sc of subcategories">{{ sc.subcategory }}</a>
     </div>
 </li>

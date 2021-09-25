@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,15 @@ export class LoginComponent implements OnInit {
 
   clicked: boolean = false;
 
-  constructor() { }
+  constructor(private userService: UserService, private route: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onLogin() {
+    this.userService.onLogin();
+
+    this.route.navigate(['home']);
   }
 
   onClicked(){
@@ -19,6 +27,6 @@ export class LoginComponent implements OnInit {
   }
 
   onNotClicked(){
-    this.clicked = true;
+    this.clicked = false;
   }
 }
