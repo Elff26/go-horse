@@ -11,3 +11,7 @@
     background-color: white;
     color: #ff5555;
 }
+
+.nav-link {
+    cursor: pointer;
+}

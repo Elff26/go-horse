@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import tmpCategorias from './categorias';
+import { CategoriesService } from 'src/app/services/categories/categories.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,11 +8,12 @@ import tmpCategorias from './categorias';
 })
 export class MenuComponent implements OnInit {
 
-  categorias = tmpCategorias;
+  categories: any = null;
 
-  constructor() { }
+  constructor(private categoriesService: CategoriesService) { }
 
   ngOnInit(): void {
+    this.categories = this.categoriesService.getCategories();
   }
 
 }

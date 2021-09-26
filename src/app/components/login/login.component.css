@@ -1,5 +1,6 @@
 .content{
   width: 100vw !important;
+  max-width: 100%;
 }
 
 .card{
@@ -9,7 +10,6 @@
 
 .card-body{
   display: flex;
-
 }
 
 .input.form-control{
@@ -35,7 +35,6 @@
 
 .content-registration-form{
   width: 100vw;
-
 }
 
 .content-button-registration{
@@ -50,4 +49,26 @@
 
 .nav-link{
   color: black;
+  cursor: pointer;
 }
+
+
+@media screen and (max-width: 800px) {
+  .card-body{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-login{
+    width: 100%;
+  }
+  
+  .content-registration{
+    width: 100%;
+  }
+
+  .content-registration-form{
+    width: 100%;
+  }
+}
+

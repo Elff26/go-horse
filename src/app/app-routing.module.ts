@@ -36,6 +36,10 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     component: ForgotPassswordComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/home'
   }
 ];
 

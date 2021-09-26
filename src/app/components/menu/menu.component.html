@@ -7,7 +7,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav w-100 d-flex justify-content-center">
-            <app-menu-dropdown *ngFor="let categoria of categorias" [categoria]="categoria.categoria" [subcategorias]="categoria.subcategorias"></app-menu-dropdown>
+            <app-menu-dropdown *ngFor="let item of categories" [category]="item.category" [subcategories]="item.subcategories"></app-menu-dropdown>
         </ul>
     </div>
 </nav>

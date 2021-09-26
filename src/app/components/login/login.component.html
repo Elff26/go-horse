@@ -1,98 +1,92 @@
-<div class="content">
+<div class="container">
   <app-header></app-header>
-  <div class="card" *ngIf="!clicked; else cadastro">
-    <div class="card-header">
-      <ul class="nav nav-pills card-header-pills">
-        <li class="nav-item">
-          <a class="nav-link active" href="/login-card">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="onClicked()">Cadastro</a>
-        </li>
-      </ul>
-    </div>
-    <div class="card-body">
-      <div class="content-login">
-        <h5 class="card-title text-center">Se você já possui cadastro. Faça seu login aqui!</h5>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-            </svg>
-          </span>
-          <input type="email" class="form-control" placeholder="exemplo@hotmail.com">
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-              <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-            </svg>
-          </span>
-          <input type="password" class="form-control" placeholder="*********">
-        </div>
-        <a href="/home" class="default-btn btn">Entrar</a>
+  
+  <div class="content">
+    <div class="card">
+      <div class="card-header">
+        <ul class="nav nav-pills card-header-pills">
+          <li class="nav-item">
+            <a class="nav-link" [class.active]="clicked === false" (click)="onNotClicked()">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [class.active]="clicked === true" (click)="onClicked()">Cadastro</a>
+          </li>
+        </ul>
       </div>
-      <div class="content-registration">
-        <h5 class="card-title text-center">Ainda não possui cadastro? Cadastre-se para ficar por dentro de todas as novidades!</h5>
-        <div class="content-button-registration">
-          <a (click)="onClicked()" class="default-btn btn">Cadastre-se aqui!</a>
+
+      <div class="card-body" *ngIf="!clicked; else cadastro">
+        <div class="content-login">
+          <h5 class="card-title text-center">Se você já possui cadastro. Faça seu login aqui!</h5>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+              </svg>
+            </span>
+            <input type="email" class="form-control" placeholder="exemplo@hotmail.com">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+              </svg>
+            </span>
+            <input type="password" class="form-control" placeholder="*********">
+          </div>
+          <button type="button" class="default-btn btn" (click)="onLogin()">Entrar</button>
+        </div>
+        <div class="content-registration">
+          <h5 class="card-title text-center">Ainda não possui cadastro? Cadastre-se para ficar por dentro de todas as novidades!</h5>
+          <div class="content-button-registration">
+            <a (click)="onClicked()" class="default-btn btn">Cadastre-se aqui!</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <app-footer></app-footer>
 </div>
 
 <ng-template #cadastro>
-  <div class="card">
-    <div class="card-header">
-      <ul class="nav nav-pills card-header-pills">
-        <li class="nav-item">
-          <a href="/login" class="nav-link">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active">Cadastro</a>
-        </li>
-      </ul>
-    </div>
-    <div class="card-body">
-      <div class="content-registration-form">
-        <h5 class="card-title text-center">Se você ainda não possui cadastro. Faça seu cadastro aqui!</h5>
-        <form>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputName">Nome</label>
-              <input type="text" class="form-control" id="inputName" placeholder="Maria">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputSurname">Sobrenome</label>
-              <input type="text" class="form-control" id="inputSurname" placeholder="Santos">
-            </div>
+  <div class="card-body">
+    <div class="content-registration-form">
+      <h5 class="card-title text-center">Se você ainda não possui cadastro. Faça seu cadastro aqui!</h5>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputName">Nome</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Maria">
           </div>
-          <div class="form-group">
-            <label for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="exemplo@hotmail.com">
+          <div class="form-group col-md-6">
+            <label for="inputSurname">Sobrenome</label>
+            <input type="text" class="form-control" id="inputSurname" placeholder="Santos">
           </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputPassword">Senha</label>
-              <input type="password" class="form-control" id="inputPassword" placeholder="********">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputPasswordConfirm">Confirme sua senha</label>
-              <input type="password" class="form-control" id="inputPasswordConfirm" placeholder="********">
-            </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail">Email</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="exemplo@hotmail.com">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputPassword">Senha</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="********">
           </div>
-          <div class="form-group">
-            <label for="inputCPF">CPF</label>
-            <input type="text" class="form-control" id="inputCPF" placeholder="000.000.000-00">
+          <div class="form-group col-md-6">
+            <label for="inputPasswordConfirm">Confirme sua senha</label>
+            <input type="password" class="form-control" id="inputPasswordConfirm" placeholder="********">
           </div>
-          <div class="form-group">
-            <label for="inputPhone">Telefone</label>
-            <input type="text" class="form-control" id="inputPhone" placeholder="(00) 00000-0000">
-          </div>
-        </form>
-        <a href="/login" type="submit" class="default-btn btn" (click)="onNotClicked()">Cadastrar</a>
-      </div>
+        </div>
+        <div class="form-group">
+          <label for="inputCPF">CPF</label>
+          <input type="text" class="form-control" id="inputCPF" placeholder="000.000.000-00">
+        </div>
+        <div class="form-group">
+          <label for="inputPhone">Telefone</label>
+          <input type="text" class="form-control" id="inputPhone" placeholder="(00) 00000-0000">
+        </div>
+      </form>
+      <button type="button" class="default-btn btn" (click)="onNotClicked()">Cadastrar</button>
     </div>
   </div>
 </ng-template>

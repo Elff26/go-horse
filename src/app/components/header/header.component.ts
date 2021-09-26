@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,11 +10,11 @@ export class HeaderComponent {
 
   constructor(private router: Router) { }
 
-  onSearch() {
+  onSearch(): void {
     this.router.navigate(['search']);
   }
 
-  gotoHome() {
+  gotoHome(): void {
     this.router.navigate(['home']);
   }
 }

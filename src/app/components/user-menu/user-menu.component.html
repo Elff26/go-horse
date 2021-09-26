@@ -1,14 +1,14 @@
 <div *ngIf="!logged; else icons">
-    <button type="button" class="btn default-btn-custom-white" routerLink="/login" (click)="onLogin()">
+    <button type="button" class="btn default-btn-custom-white" routerLink="/login">
         Entrar
     </button>
 </div>
 
 <ng-template #icons>
   <div class="d-flex flex-row align-items-center">
-    <button class="btn custom-border-btn mr-1">
+    <a routerLink="/my-car" class="btn custom-border-btn mr-1">
       <img src="assets/images/shopping-cart.svg" alt="carrinho" class="custom-icon" />
-    </button>
+    </a>
 
     <button class="btn custom-border-btn" (click)="onLogout()">
       <img src="assets/images/log-out.svg" alt="Log Out" class="custom-icon" />
