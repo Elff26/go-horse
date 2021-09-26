@@ -6,7 +6,7 @@
     
         <div class="col-6">
             <form class="d-flex">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2" name="searched" [(ngModel)]="searched" type="text" placeholder="Search" >
                 <button class="btn default-btn-custom-white btn-sm ml-1" type="button" (click)="onSearch()">Search</button>
             </form>
         </div>

@@ -4,25 +4,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CategoriesService {
-  categories: {category: string, subcategories: { subcategory: string, link: string }[]}[] = [
+  categories: {category: string, subcategories: { subcategory: string }[]}[] = [
     {
       category: "PNEUS",
       subcategories: [
         {
-          subcategory: "Carro de Passeio",
-          link: ""
+          subcategory: "Carro de Passeio"
         },
         {
-          subcategory: "Moto",
-          link: ""
+          subcategory: "Moto"
         },
         {
-          subcategory: "Van",
-          link: ""
+          subcategory: "Van"
         },
         {
-          subcategory: "Quadriciclo",
-          link: ""
+          subcategory: "Quadriciclo"
         }
       ]
     },
@@ -30,24 +26,19 @@ export class CategoriesService {
       category: "AUTOPEÇAS",
       subcategories: [
         {
-          subcategory: "Amortecedor",
-          link: ""
+          subcategory: "Amortecedor"
         },
         {
-          subcategory: "Motor",
-          link: ""
+          subcategory: "Motor"
         },
         {
-          subcategory: "Embreagem",
-          link: ""
+          subcategory: "Embreagem"
         },
         {
-          subcategory: "Freio",
-          link: ""
+          subcategory: "Freio"
         },
         {
-          subcategory: "Suspensão",
-          link: ""
+          subcategory: "Suspensão"
         }
       ]
     },
@@ -55,16 +46,13 @@ export class CategoriesService {
       category: "FERRAMENTAS/EQUIPAMENTOS",
       subcategories: [
         {
-          subcategory: "Chave de Roda",
-          link: ""
+          subcategory: "Chave de Roda"
         },
         {
-          subcategory: "Compressor de Ar",
-          link: ""
+          subcategory: "Compressor de Ar"
         },
         {
-          subcategory: "Macaco",
-          link: ""
+          subcategory: "Macaco"
         }
       ]
     },
@@ -72,28 +60,22 @@ export class CategoriesService {
       category: "ACESSÓRIOS EXTERNOS",
       subcategories: [
         {
-          subcategory: "Calota",
-          link: ""
+          subcategory: "Calota"
         },
         {
-          subcategory: "Bagageiro",
-          link: ""
+          subcategory: "Bagageiro"
         },
         {
-          subcategory: "Capas Automotivas",
-          link: ""
+          subcategory: "Capas Automotivas"
         },
         {
-          subcategory: "Para-Choque",
-          link: ""
+          subcategory: "Para-Choque"
         },
         {
-          subcategory: "Limpador Parabrisa",
-          link: ""
+          subcategory: "Limpador Parabrisa"
         },
         {
-          subcategory: "Retrovisor",
-          link: ""
+          subcategory: "Retrovisor"
         }
       ]
     },
@@ -101,20 +83,16 @@ export class CategoriesService {
       category: "ACESSÓRIOS INTERNOS",
       subcategories: [
         {
-          subcategory: "Cadeira para Bebê",
-          link: ""
+          subcategory: "Cadeira para Bebê"
         },
         {
-          subcategory: "Maçanetas e Puxadores",
-          link: ""
+          subcategory: "Maçanetas e Puxadores"
         },
         {
-          subcategory: "Tapetes",
-          link: ""
+          subcategory: "Tapetes"
         },
         {
-          subcategory: "Volante",
-          link: ""
+          subcategory: "Volante"
         }
       ]
     },
@@ -122,20 +100,16 @@ export class CategoriesService {
       category: "LUBRIFICANTES E ADITIVOS",
       subcategories: [
         {
-          subcategory: "Aditivos",
-          link: ""
+          subcategory: "Aditivos"
         },
         {
-          subcategory: "Fluido de Freio",
-          link: ""
+          subcategory: "Fluido de Freio"
         },
         {
-          subcategory: "Silicone",
-          link: ""
+          subcategory: "Silicone"
         },
         {
-          subcategory: "Óleo de Motor",
-          link: ""
+          subcategory: "Óleo de Motor"
         }
       ]
     }
@@ -143,7 +117,7 @@ export class CategoriesService {
 
   constructor() { }
 
-  getCategories(): {category: string, subcategories: { subcategory: string, link: string }[]}[] {
+  getCategories(): {category: string, subcategories: { subcategory: string }[]}[] {
     return [...this.categories];
   }
 }

@@ -2,7 +2,13 @@
     <a class="nav-link dropdown-toggle custom-dropdown-text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{ category }}
     </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item custom-dropdown-text" [routerLink]="sc.link" *ngFor="let sc of subcategories">{{ sc.subcategory }}</a>
+    <div class="dropdown-menu">
+        <a 
+            class="dropdown-item custom-dropdown-text" 
+            *ngFor="let sc of subcategories" 
+            routerLink="/search" 
+            (click)="onSearch(sc.subcategory)">
+            {{ sc.subcategory }}
+        </a>
     </div>
 </li>
