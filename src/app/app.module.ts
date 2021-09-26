@@ -17,6 +17,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { MyCarComponent } from './components/my-car/my-car.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,11 +35,12 @@ import { RegistrationComponent } from './components/registration/registration.co
     ProductDetailComponent,
     MyCarComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
 ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
