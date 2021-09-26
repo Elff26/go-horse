@@ -1,0 +1,22 @@
+.content{
+  padding: 0 !important;
+  width: 40% !important;
+}
+
+input{
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 540px){
+  .content{
+    padding: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 540.95px){
+  .content{
+    padding: 0 !important;
+    width: 60% !important;
+  }
+}

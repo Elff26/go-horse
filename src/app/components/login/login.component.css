@@ -52,6 +52,10 @@
   cursor: pointer;
 }
 
+.campoObrigatorio{
+  font-size: 12px;
+  color: darkgray;
+}
 
 @media screen and (max-width: 800px) {
   .card-body{
@@ -62,7 +66,7 @@
   .content-login{
     width: 100%;
   }
-  
+
   .content-registration{
     width: 100%;
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -11,14 +12,13 @@ export class LoginComponent implements OnInit {
 
   clicked: boolean = false;
 
-  constructor(private userService: UserService, private route: Router) { }
+  constructor(private userService: UserService, private route: Router) {}
 
   ngOnInit(): void {
   }
 
   onLogin() {
     this.userService.onLogin();
-
     this.route.navigate(['home']);
   }
 

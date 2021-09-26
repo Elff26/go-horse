@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ForgotPassswordComponent } from './components/forgot-password/forgot-passsword.component';
+import { ForgotPassswordComponent } from './components/forgot-passsword/forgot-passsword.component';
 import { LoginComponent } from './components/login/login.component';
 import { MyCarComponent } from './components/my-car/my-car.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';

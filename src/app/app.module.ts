@@ -15,8 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { MyCarComponent } from './components/my-car/my-car.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegistrationComponent } from './components/registration/registration.component';
-import { ForgotPassswordComponent } from './components/forgot-password/forgot-passsword.component';
+import { ForgotPassswordComponent } from './components/forgot-passsword/forgot-passsword.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ import { ForgotPassswordComponent } from './components/forgot-password/forgot-pa
     ProductDetailComponent,
     MyCarComponent,
     LoginComponent,
-    RegistrationComponent,
     ForgotPassswordComponent
 ],
   imports: [

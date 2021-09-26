@@ -1,6 +1,5 @@
 <div class="container">
   <app-header></app-header>
-  
   <div class="content">
     <div class="card">
       <div class="card-header">
@@ -13,7 +12,6 @@
           </li>
         </ul>
       </div>
-
       <div class="card-body" *ngIf="!clicked; else cadastro">
         <div class="content-login">
           <h5 class="card-title text-center">Se você já possui cadastro. Faça seu login aqui!</h5>
@@ -33,6 +31,7 @@
             </span>
             <input type="password" class="form-control" placeholder="*********">
           </div>
+          <a class="linkForgotPassword" href="/forgot-password">Esqueceu a senha?</a>
           <button type="button" class="default-btn btn" (click)="onLogin()">Entrar</button>
         </div>
         <div class="content-registration">
@@ -55,38 +54,38 @@
       <form>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputName">Nome</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Maria">
+            <label for="inputName">Nome <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
+            <input type="text" class="form-control" id="inputName" placeholder="Maria" required>
           </div>
           <div class="form-group col-md-6">
-            <label for="inputSurname">Sobrenome</label>
-            <input type="text" class="form-control" id="inputSurname" placeholder="Santos">
+            <label for="inputSurname">Sobrenome <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
+            <input type="text" class="form-control" id="inputSurname" placeholder="Santos" required>
           </div>
         </div>
         <div class="form-group">
-          <label for="inputEmail">Email</label>
-          <input type="email" class="form-control" id="inputEmail" placeholder="exemplo@hotmail.com">
+          <label for="inputEmail">Email <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="exemplo@hotmail.com" required pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+">
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputPassword">Senha</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="********">
+            <label for="inputPassword">Senha <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="********" required>
           </div>
           <div class="form-group col-md-6">
-            <label for="inputPasswordConfirm">Confirme sua senha</label>
-            <input type="password" class="form-control" id="inputPasswordConfirm" placeholder="********">
+            <label for="inputPasswordConfirm">Confirme sua senha <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
+            <input type="password" class="form-control" id="inputPasswordConfirm" placeholder="********" required>
           </div>
         </div>
         <div class="form-group">
-          <label for="inputCPF">CPF</label>
-          <input type="text" class="form-control" id="inputCPF" placeholder="000.000.000-00">
+          <label for="inputCPF">CPF <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
+          <input type="text" class="form-control" id="inputCPF" placeholder="000.000.000-00" required>
         </div>
         <div class="form-group">
-          <label for="inputPhone">Telefone</label>
-          <input type="text" class="form-control" id="inputPhone" placeholder="(00) 00000-0000">
+          <label for="inputPhone">Telefone <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
+          <input type="text" class="form-control" id="inputPhone" placeholder="(00) 00000-0000" required>
         </div>
+        <button type="submit" class="default-btn btn" (click)="onNotClicked()">Cadastrar</button>
       </form>
-      <button type="button" class="default-btn btn" (click)="onNotClicked()">Cadastrar</button>
     </div>
   </div>
 </ng-template>
