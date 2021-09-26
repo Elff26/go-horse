@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardProductComponent } from './components/card-product/card-product.component';
@@ -17,6 +16,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { MyCarComponent } from './components/my-car/my-car.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { ForgotPassswordComponent } from './components/forgot-password/forgot-passsword.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,8 @@ import { RegistrationComponent } from './components/registration/registration.co
     ProductDetailComponent,
     MyCarComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ForgotPassswordComponent
 ],
   imports: [
     BrowserModule,
