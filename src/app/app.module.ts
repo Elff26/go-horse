@@ -18,6 +18,7 @@ import { MyCarComponent } from './components/my-car/my-car.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule } from '@angular/forms';
+import { ForgotPassswordComponent } from './components/forgot-password/forgot-passsword.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     MyCarComponent,
     LoginComponent,
     RegistrationComponent,
+    ForgotPassswordComponent
 ],
   imports: [
     BrowserModule,

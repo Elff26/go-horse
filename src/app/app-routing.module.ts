@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ForgotPassswordComponent } from './components/forgot-password/forgot-passsword.component';
 import { LoginComponent } from './components/login/login.component';
 import { MyCarComponent } from './components/my-car/my-car.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductSearchComponent } from './components/product-search/product-search.component';
 
@@ -34,7 +34,11 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: '**', 
+    path: 'forgot-password',
+    component: ForgotPassswordComponent
+  },
+  {
+    path: '**',
     redirectTo: '/home'
   }
 ];
