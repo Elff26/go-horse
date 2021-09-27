@@ -15,22 +15,40 @@
       <div class="card-body" *ngIf="!clicked; else cadastro">
         <div class="content-login">
           <h5 class="card-title text-center">Se você já possui cadastro. Faça seu login aqui!</h5>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-              </svg>
-            </span>
-            <input type="email" class="form-control" placeholder="exemplo@hotmail.com">
-          </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-              </svg>
-            </span>
-            <input type="password" class="form-control" placeholder="*********">
-          </div>
+          <form [formGroup]="pageForm">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                </svg>
+              </span>
+              <input type="email" class="form-control" placeholder="exemplo@hotmail.com" formControlName="Email">
+            </div>
+            <div [hidden]="pageForm.controls.Email?.valid" class="alert alert-danger">
+              <span [hidden]="!pageForm.controls.Email?.errors?.required">Campo Obrigatório</span>
+              <span [hidden]="!pageForm.controls.Email?.errors?.pattern">Email Inválido</span>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                  <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                </svg>
+              </span>
+              <input type="password" class="form-control" placeholder="*********" formControlName="Password">
+            </div>
+            <div [hidden]="pageForm.controls.Password?.valid" class="alert alert-danger">
+              <span [hidden]="!pageForm.controls.Password?.errors?.required">Campo Obrigatório</span>
+              <span [hidden]="!pageForm.controls.Password?.errors?.pattern">Senha Inválida! A senha deve conter:
+                <ul>
+                  <li>No mínimo 8 caracteres</li>
+                  <li>No mínimo 1 Letra Maiúscula</li>
+                  <li>No mínimo 1 Letra Minúscula</li>
+                  <li>No mínimo 1 número</li>
+                  <li>No mínimo 1 caracter especial</li>
+                </ul>
+              </span>
+            </div>
+          </form>
           <a class="linkForgotPassword" href="/forgot-password">Esqueceu a senha?</a>
           <button type="button" class="default-btn btn" (click)="onLogin()">Entrar</button>
         </div>
@@ -51,38 +69,80 @@
   <div class="card-body">
     <div class="content-registration-form">
       <h5 class="card-title text-center">Se você ainda não possui cadastro. Faça seu cadastro aqui!</h5>
-      <form>
+      <form [formGroup]="pageForm">
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputName">Nome <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
-            <input type="text" class="form-control" id="inputName" placeholder="Maria" required>
+            <label for="inputName">Nome</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Maria" formControlName="Name">
+            <div [hidden]="pageForm.controls.Name?.valid" class="alert alert-danger">
+              <span [hidden]="!pageForm.controls.Name?.errors?.required">Campo Obrigatório</span>
+            </div>
           </div>
           <div class="form-group col-md-6">
-            <label for="inputSurname">Sobrenome <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
-            <input type="text" class="form-control" id="inputSurname" placeholder="Santos" required>
+            <label for="inputSurname">Sobrenome</label>
+            <input type="text" class="form-control" id="inputSurname" placeholder="Santos" formControlName="Surname">
+            <div [hidden]="pageForm.controls.Surname?.valid" class="alert alert-danger">
+              <span [hidden]="!pageForm.controls.Surname?.errors?.required">Campo Obrigatório</span>
+            </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="inputEmail">Email <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
-          <input type="email" class="form-control" id="inputEmail" placeholder="exemplo@hotmail.com" required pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+">
+          <label for="inputEmail">Email</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="exemplo@hotmail.com" formControlName="Email">
+          <div [hidden]="pageForm.controls.Email?.valid" class="alert alert-danger">
+            <span [hidden]="!pageForm.controls.Email?.errors?.required">Campo Obrigatório</span>
+            <span [hidden]="!pageForm.controls.Email?.errors?.pattern">Email Inválido</span>
+          </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputPassword">Senha <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="********" required>
+            <label for="inputPassword">Senha</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="********" formControlName="Password">
+            <div [hidden]="pageForm.controls.Password?.valid" class="alert alert-danger">
+              <span [hidden]="!pageForm.controls.Password?.errors?.required">Campo Obrigatório</span>
+              <span [hidden]="!pageForm.controls.Password?.errors?.pattern">Senha Inválida! A senha deve conter:
+                <ul>
+                  <li>No mínimo 8 caracteres</li>
+                  <li>No mínimo 1 Letra Maiúscula</li>
+                  <li>No mínimo 1 Letra Minúscula</li>
+                  <li>No mínimo 1 número</li>
+                  <li>No mínimo 1 caracter especial</li>
+                </ul>
+              </span>
+            </div>
           </div>
           <div class="form-group col-md-6">
-            <label for="inputPasswordConfirm">Confirme sua senha <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
-            <input type="password" class="form-control" id="inputPasswordConfirm" placeholder="********" required>
+            <label for="inputPasswordConfirm">Confirme sua senha</label>
+            <input type="password" class="form-control" id="inputPasswordConfirm" placeholder="********" formControlName="PasswordConfirm">
+            <div [hidden]="pageForm.controls.Password?.valid" class="alert alert-danger">
+              <span [hidden]="!pageForm.controls.PasswordConfirm.errors?.required">Campo Obrigatório</span>
+              <span [hidden]="!pageForm.controls.PasswordConfirm.errors?.pattern">Senha Inválida! A senha deve conter:
+                <ul>
+                  <li>No mínimo 8 caracteres</li>
+                  <li>No mínimo 1 Letra Maiúscula</li>
+                  <li>No mínimo 1 Letra Minúscula</li>
+                  <li>No mínimo 1 número</li>
+                  <li>No mínimo 1 caracter especial</li>
+                </ul>
+              </span>
+            </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="inputCPF">CPF <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
-          <input type="text" class="form-control" id="inputCPF" placeholder="000.000.000-00" required>
+          <label for="inputCPF">CPF</label>
+          <input type="text" class="form-control" id="inputCPF" placeholder="000.000.000-00" formControlName="CPF">
+          <div [hidden]="pageForm.controls.CPF?.valid" class="alert alert-danger">
+            <span [hidden]="!pageForm.controls.CPF?.errors?.required">Campo Obrigatório</span>
+            <span [hidden]="!pageForm.controls.CPF?.errors?.pattern">CPF Inválido</span>
+          </div>
         </div>
         <div class="form-group">
-          <label for="inputPhone">Telefone <i class="campoObrigatorio">(Campo Obrigatório)</i></label>
-          <input type="text" class="form-control" id="inputPhone" placeholder="(00) 00000-0000" required>
+          <label for="inputPhone">Celular</label>
+          <input type="text" class="form-control" id="inputPhone" placeholder="DDD+00000-0000" formControlName="Phone">
+          <div [hidden]="pageForm.controls.Phone?.valid" class="alert alert-danger">
+            <span [hidden]="!pageForm.controls.Phone?.errors?.required">Campo Obrigatório</span>
+            <span [hidden]="!pageForm.controls.Phone?.errors?.pattern">Telefone Inválido</span>
+          </div>
         </div>
         <button type="submit" class="default-btn btn" (click)="onNotClicked()">Cadastrar</button>
       </form>

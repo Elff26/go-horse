@@ -57,6 +57,14 @@
   color: darkgray;
 }
 
+.alert.alert-danger{
+  margin-top: -16px;
+}
+
+.alert{
+  padding: 0.35rem 1.25rem;
+}
+
 @media screen and (max-width: 800px) {
   .card-body{
     flex-direction: column;

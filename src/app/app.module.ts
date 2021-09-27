@@ -17,7 +17,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { MyCarComponent } from './components/my-car/my-car.component';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPassswordComponent } from './components/forgot-passsword/forgot-passsword.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
