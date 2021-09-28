@@ -138,7 +138,7 @@
         </div>
         <div class="form-group">
           <label for="inputPhone">Celular</label>
-          <input type="text" class="form-control" id="inputPhone" placeholder="DDD+00000-0000" formControlName="Phone">
+          <input type="text" class="form-control" id="inputPhone" placeholder="(00) 00000-0000" formControlName="Phone">
           <div [hidden]="pageForm.controls.Phone?.valid" class="alert alert-danger">
             <span [hidden]="!pageForm.controls.Phone?.errors?.required">Campo Obrigatório</span>
             <span [hidden]="!pageForm.controls.Phone?.errors?.pattern">Telefone Inválido</span>

@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       Password: ['', [Validators.required, Validators.pattern("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$")]],
       PasswordConfirm: ['', [Validators.required, Validators.pattern("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$")]],
       CPF: ['', [Validators.required, Validators.pattern("^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$")]],
-      Phone: ['', [Validators.required, Validators.pattern("^[0-9]{2}[0-9]{4,5}-[0-9]{4}$")]]
+      Phone: ['', [Validators.required, Validators.pattern("^\\([0-9]{2}\\)\\s[0-9]{4,5}-[0-9]{4}$")]]
     });
   }
 }
