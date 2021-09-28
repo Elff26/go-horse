@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { SourceMapGenerator } from '@angular/compiler/src/output/source_map';
+import { Component, Input, OnInit } from '@angular/core';
+import { Modal } from '../modal/modal';
+import { Products } from './products';
 
 @Component({
   selector: 'app-my-car',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyCarComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
   }
 
+  onClick(info: Modal){
+    info.title = "Sucesso",
+    info.description = "Você finalizou sua compra! Nós encaminharemos um email com a confirmação da sua compra e falando sobre os próximos passos.",
+    info.textButton = "Okay",
+    info.href = "/"
+  }
 }

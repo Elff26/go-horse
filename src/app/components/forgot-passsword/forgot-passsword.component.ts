@@ -18,6 +18,7 @@ export class ForgotPassswordComponent implements OnInit {
   onClick(info: Modal){
     info.title = "Sucesso",
     info.description = "Um email para recuperação de senha foi encaminhado para você, verifique sua caixa de entrada ou span!",
-    info.textButton = "Okay"
+    info.textButton = "Okay",
+    info.href = "/login"
   }
 }

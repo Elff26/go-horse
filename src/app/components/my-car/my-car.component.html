@@ -43,8 +43,11 @@
         </table>
         <a id="btn-limpar-carrinho" class="btn default-btn m-2">Limpar Carrinho</a>
         <a routerLink="/home" id="btn-continuar-comprando" class="btn default-btn m-2"> Continuar Comprando</a>
-        <a routerLink="/" id="btn-finalizar-compra" class="btn default-btn m-2">Finalizar Compra</a>
+        <button type="button" class="default-btn btn" data-toggle="modal" data-target="#Modal">
+          Finalizar Compra
+        </button>
   </div>
-  
   <app-footer></app-footer>
 </div>
+
+<app-modal (notificacao)="onClick($event)"></app-modal>

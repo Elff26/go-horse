@@ -38,7 +38,8 @@ export class LoginComponent implements OnInit {
   onClick(info: Modal){
     info.title = "Sucesso",
     info.description = "Seu cadastro foi realizado!",
-    info.textButton = "Okay"
+    info.textButton = "Okay",
+    info.href = "/login"
   }
 
   createForm(){
