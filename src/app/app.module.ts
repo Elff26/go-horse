@@ -18,6 +18,7 @@ import { MyCarComponent } from './components/my-car/my-car.component';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPassswordComponent } from './components/forgot-passsword/forgot-passsword.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductDetailComponent,
     MyCarComponent,
     LoginComponent,
-    ForgotPassswordComponent
+    ForgotPassswordComponent,
+    ModalComponent
 ],
   imports: [
     BrowserModule,

@@ -61,7 +61,12 @@
   margin-top: -16px;
 }
 
-.alert{
+.alert.alert-danger{
+  display: flex;
+  flex-direction: column;
+}
+
+.alert#alert-login{
   padding: 0.35rem 1.25rem;
 }
 

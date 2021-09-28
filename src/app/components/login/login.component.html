@@ -69,7 +69,7 @@
   <div class="card-body">
     <div class="content-registration-form">
       <h5 class="card-title text-center">Se você ainda não possui cadastro. Faça seu cadastro aqui!</h5>
-      <form [formGroup]="pageForm">
+      <form [formGroup]="pageForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputName">Nome</label>
@@ -109,14 +109,15 @@
                   <li>No mínimo 1 caracter especial</li>
                 </ul>
               </span>
+              <span [hidden]="pageForm.controls.PasswordConfirm?.errors?.confirmedValidator"> As senhas inseridas não são iguais</span>
             </div>
           </div>
           <div class="form-group col-md-6">
             <label for="inputPasswordConfirm">Confirme sua senha</label>
             <input type="password" class="form-control" id="inputPasswordConfirm" placeholder="********" formControlName="PasswordConfirm">
             <div [hidden]="pageForm.controls.Password?.valid" class="alert alert-danger">
-              <span [hidden]="!pageForm.controls.PasswordConfirm.errors?.required">Campo Obrigatório</span>
-              <span [hidden]="!pageForm.controls.PasswordConfirm.errors?.pattern">Senha Inválida! A senha deve conter:
+              <span [hidden]="!pageForm.controls.PasswordConfirm?.errors?.required">Campo Obrigatório</span>
+              <span [hidden]="!pageForm.controls.PasswordConfirm?.errors?.pattern">Senha Inválida! A senha deve conter:
                 <ul>
                   <li>No mínimo 8 caracteres</li>
                   <li>No mínimo 1 Letra Maiúscula</li>
@@ -125,6 +126,7 @@
                   <li>No mínimo 1 caracter especial</li>
                 </ul>
               </span>
+              <span [hidden]="pageForm.controls.PasswordConfirm?.errors?.confirmedValidator"> As senhas inseridas não são iguais</span>
             </div>
           </div>
         </div>
@@ -144,8 +146,18 @@
             <span [hidden]="!pageForm.controls.Phone?.errors?.pattern">Telefone Inválido</span>
           </div>
         </div>
-        <button type="submit" class="default-btn btn" (click)="onNotClicked()">Cadastrar</button>
+        <button
+          type="submit"
+          [disabled]="pageForm.invalid || pageForm.pending" class="default-btn btn"
+          (click)="onNotClicked()"
+          data-toggle="modal"
+          data-target="#Modal"
+        >
+          Cadastrar
+        </button>
       </form>
     </div>
   </div>
 </ng-template>
+
+<app-modal (notificacao)="onClick($event)"></app-modal>
