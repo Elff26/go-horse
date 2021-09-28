@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ForgotPassswordComponent } from './components/forgot-passsword/forgot-passsword.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './components/modal/modal.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ModalComponent } from './components/modal/modal.component';
     MyCarComponent,
     LoginComponent,
     ForgotPassswordComponent,
-    ModalComponent
+    ModalComponent,
+    PaginationComponent
 ],
   imports: [
     BrowserModule,

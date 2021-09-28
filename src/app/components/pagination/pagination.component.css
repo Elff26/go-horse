@@ -1,0 +1,11 @@
+.page-link {
+    color: #333;
+}
+
+.page-link:hover {
+    color: #ff5555;
+}
+
+.control-button {
+    background-color: #833ab4;
+}

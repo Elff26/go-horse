@@ -24,7 +24,7 @@
               </span>
               <input type="email" class="form-control" placeholder="exemplo@hotmail.com" formControlName="Email">
             </div>
-            <div [hidden]="pageForm.controls.Email?.valid" class="alert alert-danger" id="alert-login">
+            <div [hidden]="pageForm.controls.Email?.valid || !pageForm.controls.Email?.touched" class="alert alert-danger" id="alert-login">
               <span [hidden]="!pageForm.controls.Email?.errors?.required">Campo Obrigatório</span>
               <span [hidden]="!pageForm.controls.Email?.errors?.pattern">Email Inválido</span>
             </div>
@@ -36,7 +36,7 @@
               </span>
               <input type="password" class="form-control" placeholder="*********" formControlName="Password">
             </div>
-            <div [hidden]="pageForm.controls.Password?.valid" class="alert alert-danger" id="alert-login">
+            <div [hidden]="pageForm.controls.Password?.valid || !pageForm.controls.Password?.touched" class="alert alert-danger" id="alert-login">
               <span [hidden]="!pageForm.controls.Password?.errors?.required">Campo Obrigatório</span>
               <span [hidden]="!pageForm.controls.Password?.errors?.pattern">Senha Inválida! A senha deve conter:
                 <ul>
@@ -74,14 +74,14 @@
           <div class="form-group col-md-6">
             <label for="inputName">Nome</label>
             <input type="text" class="form-control" id="inputName" placeholder="Maria" formControlName="Name">
-            <div [hidden]="pageForm.controls.Name?.valid" class="alert alert-danger">
+            <div [hidden]="pageForm.controls.Name?.valid || !pageForm.controls.Name?.touched" class="alert alert-danger">
               <span [hidden]="!pageForm.controls.Name?.errors?.required">Campo Obrigatório</span>
             </div>
           </div>
           <div class="form-group col-md-6">
             <label for="inputSurname">Sobrenome</label>
             <input type="text" class="form-control" id="inputSurname" placeholder="Santos" formControlName="Surname">
-            <div [hidden]="pageForm.controls.Surname?.valid" class="alert alert-danger">
+            <div [hidden]="pageForm.controls.Surname?.valid || !pageForm.controls.Surname?.touched" class="alert alert-danger">
               <span [hidden]="!pageForm.controls.Surname?.errors?.required">Campo Obrigatório</span>
             </div>
           </div>
@@ -89,7 +89,7 @@
         <div class="form-group">
           <label for="inputEmail">Email</label>
           <input type="email" class="form-control" id="inputEmail" placeholder="exemplo@hotmail.com" formControlName="Email">
-          <div [hidden]="pageForm.controls.Email?.valid" class="alert alert-danger">
+          <div [hidden]="pageForm.controls.Email?.valid || !pageForm.controls.Email?.touched" class="alert alert-danger">
             <span [hidden]="!pageForm.controls.Email?.errors?.required">Campo Obrigatório</span>
             <span [hidden]="!pageForm.controls.Email?.errors?.pattern">Email Inválido</span>
           </div>
@@ -98,7 +98,7 @@
           <div class="form-group col-md-6">
             <label for="inputPassword">Senha</label>
             <input type="password" class="form-control" id="inputPassword" placeholder="********" formControlName="Password">
-            <div [hidden]="pageForm.controls.Password?.valid" class="alert alert-danger">
+            <div [hidden]="pageForm.controls.Password?.valid || !pageForm.controls.Password?.touched" class="alert alert-danger">
               <span [hidden]="!pageForm.controls.Password?.errors?.required">Campo Obrigatório</span>
               <span [hidden]="!pageForm.controls.Password?.errors?.pattern">Senha Inválida! A senha deve conter:
                 <ul>
@@ -109,13 +109,12 @@
                   <li>No mínimo 1 caracter especial</li>
                 </ul>
               </span>
-              <span [hidden]="pageForm.controls.PasswordConfirm?.errors?.confirmedValidator"> As senhas inseridas não são iguais</span>
             </div>
           </div>
           <div class="form-group col-md-6">
             <label for="inputPasswordConfirm">Confirme sua senha</label>
             <input type="password" class="form-control" id="inputPasswordConfirm" placeholder="********" formControlName="PasswordConfirm">
-            <div [hidden]="pageForm.controls.Password?.valid" class="alert alert-danger">
+            <div [hidden]="pageForm.controls.PasswordConfirm?.valid || !pageForm.controls.PasswordConfirm?.touched" class="alert alert-danger">
               <span [hidden]="!pageForm.controls.PasswordConfirm?.errors?.required">Campo Obrigatório</span>
               <span [hidden]="!pageForm.controls.PasswordConfirm?.errors?.pattern">Senha Inválida! A senha deve conter:
                 <ul>
@@ -126,14 +125,14 @@
                   <li>No mínimo 1 caracter especial</li>
                 </ul>
               </span>
-              <span [hidden]="pageForm.controls.PasswordConfirm?.errors?.confirmedValidator"> As senhas inseridas não são iguais</span>
+              <span [hidden]="pageForm.controls.PasswordConfirm?.errors?.ConfirmedValidator">As senhas inseridas não são iguais</span>
             </div>
           </div>
         </div>
         <div class="form-group">
           <label for="inputCPF">CPF</label>
           <input type="text" class="form-control" id="inputCPF" placeholder="000.000.000-00" formControlName="CPF">
-          <div [hidden]="pageForm.controls.CPF?.valid" class="alert alert-danger">
+          <div [hidden]="pageForm.controls.CPF?.valid || !pageForm.controls.CPF?.touched" class="alert alert-danger">
             <span [hidden]="!pageForm.controls.CPF?.errors?.required">Campo Obrigatório</span>
             <span [hidden]="!pageForm.controls.CPF?.errors?.pattern">CPF Inválido</span>
           </div>
@@ -141,7 +140,7 @@
         <div class="form-group">
           <label for="inputPhone">Celular</label>
           <input type="text" class="form-control" id="inputPhone" placeholder="(00) 00000-0000" formControlName="Phone">
-          <div [hidden]="pageForm.controls.Phone?.valid" class="alert alert-danger">
+          <div [hidden]="pageForm.controls.Phone?.valid || !pageForm.controls.Phone?.touched" class="alert alert-danger">
             <span [hidden]="!pageForm.controls.Phone?.errors?.required">Campo Obrigatório</span>
             <span [hidden]="!pageForm.controls.Phone?.errors?.pattern">Telefone Inválido</span>
           </div>

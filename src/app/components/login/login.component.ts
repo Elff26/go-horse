@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
       Phone: ['', [Validators.required, Validators.pattern("^\\([0-9]{2}\\)\\s[0-9]{4,5}-[0-9]{4}$")]]
     },
     {
-      validator: ConfirmedValidator( 'PasswordConfirm', 'Password')
+      validator: ConfirmedValidator('Password', 'PasswordConfirm')
     });
   }
 
