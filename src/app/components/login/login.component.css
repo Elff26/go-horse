@@ -57,7 +57,7 @@
   color: darkgray;
 }
 
-.alert.alert-danger{
+.alert.alert-danger#alert-login{
   margin-top: -16px;
 }
 

@@ -24,7 +24,7 @@
               </span>
               <input type="email" class="form-control" placeholder="exemplo@hotmail.com" formControlName="Email">
             </div>
-            <div [hidden]="pageForm.controls.Email?.valid" class="alert alert-danger">
+            <div [hidden]="pageForm.controls.Email?.valid" class="alert alert-danger" id="alert-login">
               <span [hidden]="!pageForm.controls.Email?.errors?.required">Campo Obrigatório</span>
               <span [hidden]="!pageForm.controls.Email?.errors?.pattern">Email Inválido</span>
             </div>
@@ -36,7 +36,7 @@
               </span>
               <input type="password" class="form-control" placeholder="*********" formControlName="Password">
             </div>
-            <div [hidden]="pageForm.controls.Password?.valid" class="alert alert-danger">
+            <div [hidden]="pageForm.controls.Password?.valid" class="alert alert-danger" id="alert-login">
               <span [hidden]="!pageForm.controls.Password?.errors?.required">Campo Obrigatório</span>
               <span [hidden]="!pageForm.controls.Password?.errors?.pattern">Senha Inválida! A senha deve conter:
                 <ul>
