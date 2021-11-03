@@ -3,7 +3,7 @@
 
   <div class="content">
       <h1>Meu Carrinho</h1>
-      <table class="table table-hover m-0">
+      <table class="table table-hover">
           <thead>
             <tr>
               <th>Produto</th>
@@ -31,15 +31,11 @@
               <td>Uma descrição bem legal aqui...</td>
               <td>R$ 00,00</td>
             </tr>
-          </tbody>
-        </table>
-        <table class="table table-hover">
-          <thead>
             <tr>
-              <th style="width: 82vw;">Total</th>
-              <th>R$ 00,00</th>
+              <td colspan="3">Total</td>
+              <td>R$ 00,00</td>
             </tr>
-          </thead>
+          </tbody>
         </table>
         <a id="btn-limpar-carrinho" class="btn default-btn m-2">Limpar Carrinho</a>
         <a routerLink="/home" id="btn-continuar-comprando" class="btn default-btn m-2"> Continuar Comprando</a>
@@ -47,6 +43,7 @@
           Finalizar Compra
         </button>
   </div>
+  
   <app-footer></app-footer>
 </div>
 
