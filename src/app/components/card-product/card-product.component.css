@@ -3,6 +3,11 @@
   margin: 5px;
 }
 
+p#price.card-text{
+  color: green;
+  font-size: large;
+}
+
 /* small devices: portrait phones */
 @media only screen and (max-width: 1000px){
   .card{
