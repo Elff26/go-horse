@@ -19,6 +19,8 @@ export class HeaderComponent {
   }
 
   gotoHome(): void {
+    this.productService.onChangePage(1);
+    
     this.router.navigate(['home']);
   }
 }

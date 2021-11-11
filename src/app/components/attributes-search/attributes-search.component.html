@@ -2,7 +2,7 @@
     Ordenar Por
 </button>
 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-  <a class="dropdown-item" routerLink="#">Menor Preço</a>
-  <a class="dropdown-item" routerLink="#">Maior Preço</a>
+  <a class="dropdown-item" (click)="onChangeOrder('asc')">Menor Preço</a>
+  <a class="dropdown-item" (click)="onChangeOrder('desc')">Maior Preço</a>
 </div>
 

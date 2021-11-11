@@ -6,7 +6,6 @@
         <a 
             class="dropdown-item custom-dropdown-text" 
             *ngFor="let sc of subcategories" 
-            routerLink="/search" 
             (click)="onSearch(sc.subcategory)">
             {{ sc.subcategory }}
         </a>

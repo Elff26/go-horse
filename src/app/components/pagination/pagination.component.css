@@ -9,3 +9,7 @@
 .control-button {
     background-color: #833ab4;
 }
+
+.activeLink {
+    color: #ff5555;
+}

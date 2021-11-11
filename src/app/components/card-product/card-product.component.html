@@ -1,9 +1,11 @@
-<div class="card">
+<div class="card" *ngIf="product">
   <img src="https://i.pinimg.com/originals/17/5b/78/175b782ed45871b22e79f622973ae7af.jpg" class="card-img-top" alt="imagem do produto">
   <div class="card-body">
-    <h5 class="card-title">Titulo do Produto</h5>
-    <p class="card-text">Uma descrição bem legal aqui...</p>
-    <p class="card-text" id="price"><b>R$ 00,00</b></p>
+    <h5 class="card-title text-truncate">{{ product.titulo }}</h5>
+    <div class="card-description">
+      <p class="card-text text-truncate">{{ product.descritivo }}</p>
+    </div>
+    <p class="card-text" id="price"><b>{{ product.valor }}</b></p>
     <a routerLink="/product-detail" id="btn-comprar" class="default-btn btn">Comprar</a>
   </div>
 </div>

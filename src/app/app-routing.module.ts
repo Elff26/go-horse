@@ -19,7 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'search',
-    component: ProductSearchComponent
+    component: ProductSearchComponent,
+    
   },
   {
     path: 'product-detail',
@@ -44,7 +45,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
