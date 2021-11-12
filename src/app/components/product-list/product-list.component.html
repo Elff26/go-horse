@@ -2,11 +2,17 @@
   <app-header></app-header>
 
   <div class="content">
-    <app-card-product *ngFor="let product of products" [product]="product"></app-card-product>
+    <div class="product-list" *ngIf="products.length > 0; else Empty">
+      <app-card-product *ngFor="let product of products" [product]="product"></app-card-product>
+    </div>
   </div>
 
-  <app-pagination [pageUrl]="'/home'"></app-pagination>
+  <app-pagination [pageUrl]="'/home'" *ngIf="products.length > 0"></app-pagination>
 
   <app-footer></app-footer>
 </div>
 
+<ng-template #Empty>
+  <h1>OPS!</h1>
+  <p>Nenhum produto foi encontrado :(</p>
+</ng-template>

@@ -1,12 +1,19 @@
 <div class="container">
   <app-header></app-header>
 
-  <div class="content">
-    <app-search-result [totalRows]="totalRows"></app-search-result>
-    <app-card-product *ngFor="let product of products" [product]="product"></app-card-product>
+  <div class="content" >
+    <div class="product-list" *ngIf="products.length > 0; else Empty">
+      <app-search-result [totalRows]="totalRows"></app-search-result>
+      <app-card-product *ngFor="let product of products" [product]="product"></app-card-product>
+    </div>
   </div>
 
-  <app-pagination [pageUrl]="'/search'"></app-pagination>
+  <app-pagination [pageUrl]="'/search'" *ngIf="products.length > 0"></app-pagination>
   
   <app-footer></app-footer>
 </div>
+
+<ng-template #Empty>
+  <h1>OPS!</h1>
+  <p>Nenhum produto foi encontrado :(</p>
+</ng-template>

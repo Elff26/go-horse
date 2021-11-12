@@ -1,12 +1,17 @@
 .content {
     padding-top: 8.5rem;
+    margin: auto;
+    width: 90vw;
+    max-width: 90%;
+    text-align: center;
+}
+
+.product-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    width: 90vw;
-    max-width: 90%;
+    width: 100%;
 }
 
 /* Background para Footer, Header, etc */

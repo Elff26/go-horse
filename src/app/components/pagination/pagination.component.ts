@@ -18,6 +18,8 @@ export class PaginationComponent implements OnInit, OnDestroy {
   constructor(private productService: ProductService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.totalPages = Array.from(Array(this.productService.getPages()).keys());
+
     this.pagesSubscription = this.productService.getPagesUpdated().subscribe(pages => {
       this.currentPage = this.productService.getCurrentPage();
       this.totalPages = Array.from(Array(pages).keys());
@@ -25,6 +27,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
   }
 
   onChangePage(page: number) {
+    window.scroll(0,0);
     this.currentPage = page;
 
     this.productService.onChangePage(page);
