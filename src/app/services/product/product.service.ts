@@ -21,14 +21,13 @@ export class ProductService {
 
   onSearch(searched: string): void {
     const formData = new FormData();
-    formData.append('products', 'true');
     formData.append('searched', searched);
     formData.append('order', this.order);
 
     this.searched = searched;
     this.onSearched.next(this.searched);
     
-    this.http.post<any>(`http://localhost:80/go-horse/backend/server.php?pagina=${this.currentPage}`, formData).subscribe(response => {
+    this.http.post<any>(`http://localhost:80/go-horse/backend/products.php?page=${this.currentPage}`, formData).subscribe(response => {
       this.products = response.products;
       this.totalRows = response.rows['COUNT(*)'];
       this.pages = Math.ceil(this.totalRows / 10);

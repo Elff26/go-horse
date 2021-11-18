@@ -13,6 +13,8 @@ export class HeaderComponent {
   constructor(private router: Router, private productService: ProductService) { }
 
   onSearch(): void {
+    this.productService.onChangePage(1);
+    
     this.productService.onSearch(this.searched);
 
     this.router.navigate(['search']);
