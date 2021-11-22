@@ -5,7 +5,7 @@
     if(isset($_SERVER['REQUEST_METHOD'])) {
         switch ($_SERVER['REQUEST_METHOD']) {
             case 'GET':
-                //To get 1 product 
+                onGetProduct(); 
                 break;
             case 'POST':
                 onGetProducts();
@@ -13,6 +13,20 @@
         }
     }
     
+    function onGetProduct() {
+        $con = new mysqli("localhost", "root", "", "gohorse");
+        if(isset($_GET['codigo'])){
+            $codigo = $_GET['codigo'];
+
+            $sql= "SELECT * FROM  produto WHERE codigo='$codigo'";
+
+            $result = mysqli_fetch_assoc(mysqli_query($con, $sql));
+
+            echo json_encode($result);
+        }
+        mysqli_close($con);
+    }
+
     function onGetProducts() {
         $total_rows = 10;
         $page_value = 0;

@@ -16,6 +16,7 @@ export class ProductService {
   private currentPage: number = 1;
   private totalRows: number = 0;
   private pages: number = 0;
+  private product: any = null;
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +27,7 @@ export class ProductService {
 
     this.searched = searched;
     this.onSearched.next(this.searched);
-    
+  
     this.http.post<any>(`http://localhost:80/go-horse/backend/products.php?page=${this.currentPage}`, formData).subscribe(response => {
       this.products = response.products;
       this.totalRows = response.rows['COUNT(*)'];
@@ -79,5 +80,9 @@ export class ProductService {
 
   getProductsUpdated() {
     return this.onProducts.asObservable();
+  }
+
+  getProduct() {
+    return this.product;
   }
 }

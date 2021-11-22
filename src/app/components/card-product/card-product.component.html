@@ -5,7 +5,7 @@
     <div class="card-description">
       <p class="card-text text-truncate">{{ product.descritivo }}</p>
     </div>
-    <p class="card-text" id="price"><b>{{ product.valor }}</b></p>
-    <a routerLink="/product-detail" id="btn-comprar" class="default-btn btn">Comprar</a>
+    <p class="card-text" id="price"><b>R${{ product.valor }}</b></p>
+    <a [routerLink]="['/product-detail', product.codigo]" id="btn-comprar" class="default-btn btn">Comprar</a>
   </div>
 </div>
