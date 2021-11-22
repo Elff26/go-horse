@@ -69,7 +69,7 @@
   <div class="card-body">
     <div class="content-registration-form">
       <h5 class="card-title text-center">Se você ainda não possui cadastro. Faça seu cadastro aqui!</h5>
-      <form [formGroup]="pageForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="pageForm" (ngSubmit)="onSubmit()" method="post">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputName">Nome</label>
