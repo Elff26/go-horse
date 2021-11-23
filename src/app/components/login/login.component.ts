@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   surname:string = "";
   title:string = "";
   description:string = "";
-  private modalSubscription:Subscription = Subscription.EMPTY;
+  modal: Modal = new Modal();
 
 
   constructor(private userService: UserService, private route: Router, private fb: FormBuilder) {
@@ -31,8 +31,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.modalSubscription = this.userService.getModalUpdated().subscribe(title=>{
-      this.title = title});
   }
 
   onLogin() {
@@ -46,15 +44,12 @@ export class LoginComponent implements OnInit {
 
   onNotClicked(){
     this.onInsertUser();
+    this.pageForm.reset();
     this.clicked = false;
   }
 
-  //TODO: Fazer receber titulo e descrição por parametro
-  onClick(info: Modal){
-    info.title = this.title,
-    info.description = this.description,
-    info.textButton = "Okay",
-    info.href = "/login"
+  onClick(info: Modal) {
+    this.modal = info;
   }
 
   createForm(){
@@ -72,11 +67,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(): void{
-    this.onInsertUser();
-    this.pageForm.reset();
-  }
-
   onInsertUser():void{
     this.name = this.pageForm.controls['Name'].value;
     this.surname = this.pageForm.controls['Surname'].value;
@@ -85,6 +75,14 @@ export class LoginComponent implements OnInit {
     this.cpf = this.pageForm.controls['CPF'].value;
     this.phone = this.pageForm.controls['Phone'].value;
 
-    this.userService.onInsertUser(this.name,this.surname,this.email,this.password,this.phone,this.cpf);
+    this.userService.onInsertUser(this.name,this.surname,this.email,this.password,this.phone,this.cpf).subscribe((res) => {
+      this.title = res.Title;
+      this.description = res.Description;
+
+      this.modal.title = this.title;
+      this.modal.description = this.description;
+      this.modal.textButton = "Okay";
+      this.modal.href = "/login";
+    });
   }
 }

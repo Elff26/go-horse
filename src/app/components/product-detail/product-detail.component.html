@@ -2,7 +2,7 @@
   <app-header></app-header>
 
   <div class="content">
-    <div class="card mb-3 col-12 w-100" >
+    <div class="card mb-3 col-12 w-100 p-1" >
         <div class="row g-0">
           <div class="col-md-5">
             <img src="https://i.pinimg.com/originals/17/5b/78/175b782ed45871b22e79f622973ae7af.jpg" class="img-fluid rounded-start" alt="...">
@@ -12,8 +12,10 @@
             <div class="card-body">
               <h5 class="card-title">{{product.titulo}}</h5>
               <p class="card-text">{{product.descritivo}}</p>
-              <p class="card-text" id="price"><b>R${{ product.valor }}</b></p>
-              <a routerLink="/my-car" id="btn-comprar" class="default-btn btn">Comprar</a>
+              <p class="card-text" id="price"><b>R$ {{ product.valor }}</b></p>
+
+              <input type="number" min="1" max="9" class="form-control m-1 quantidade" aria-label="Small" [(ngModel)]="quantidade" aria-describedby="inputGroup-sizing-sm">
+              <a (click)="insertProduct()" id="btn-comprar" class="default-btn btn">Comprar</a>
             </div>
           </div>
         </div>

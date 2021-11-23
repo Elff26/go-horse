@@ -1,4 +1,8 @@
 p#price.card-text{
-    color: green;
-    font-size: large;
-  }
+  color: green;
+  font-size: large;
+}
+
+.quantidade {
+  width: 50px;
+}

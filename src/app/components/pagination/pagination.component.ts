@@ -34,10 +34,12 @@ export class PaginationComponent implements OnInit, OnDestroy {
   }
 
   onNext() {
+    window.scroll(0,0);
     this.productService.onChangePage(++this.currentPage);
   }
 
   onPrevious() {
+    window.scroll(0,0);
     this.productService.onChangePage(--this.currentPage);
   }
 
