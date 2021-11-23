@@ -4,11 +4,24 @@
     <div class="card m-3">
       <h5 class="card-header">Esqueceu sua senha?</h5>
       <div class="card-body">
-        <p class="card-text">Não se preocupe, nós damos uma jeito para você. Insira seu email para recuperar sua senha.</p>
-        <input class="form-control" id="email" placeholder="Digite seu email" type="text">
-        <button type="button" class="default-btn btn" data-toggle="modal" data-target="#Modal">
+        <p class="card-text">Não se preocupe, nós damos um jeito para você. Insira seu email para recuperar sua senha.</p>
+        <form [formGroup]="pageFormForgotPassword" (ngSubmit)="onSubmit()" method="post">
+          <div class="form-group">
+            <input type="email" class="form-control" id="inputEmail" placeholder="exemplo@hotmail.com" formControlName="Email">
+            <div [hidden]="pageFormForgotPassword.controls.Email?.valid || !pageFormForgotPassword.controls.Email?.touched" class="alert alert-danger">
+              <span [hidden]="!pageFormForgotPassword.controls.Email?.errors?.required">Campo Obrigatório</span>
+              <span [hidden]="!pageFormForgotPassword.controls.Email?.errors?.pattern">Email Inválido</span>
+            </div>
+          </div>
+          <button
+          type="submit"
+          [disabled]="pageFormForgotPassword.invalid || pageFormForgotPassword.pending" class="default-btn btn"
+          data-toggle="modal"
+          data-target="#Modal"
+        >
           Enviar email
         </button>
+        </form>
         <a>Lembrou? </a>
         <a href="/login">Clique aqui</a>
       </div>

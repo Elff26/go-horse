@@ -6,6 +6,7 @@ import { MyCarComponent } from './components/my-car/my-car.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductSearchComponent } from './components/product-search/product-search.component';
+import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
   {
     path: 'search',
     component: ProductSearchComponent,
-    
+
   },
   {
     path: 'product-detail/:codigo',
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     component: ForgotPassswordComponent
+  },
+  {
+    path: 'recover-password',
+    component: RecoverPasswordComponent
   },
   {
     path: '**',

@@ -21,6 +21,7 @@ import { ForgotPassswordComponent } from './components/forgot-passsword/forgot-p
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './components/modal/modal.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     LoginComponent,
     ForgotPassswordComponent,
     ModalComponent,
-    PaginationComponent
+    PaginationComponent,
+    RecoverPasswordComponent
 ],
   imports: [
     BrowserModule,
