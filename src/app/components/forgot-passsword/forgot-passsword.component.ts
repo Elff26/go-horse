@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EmailService } from 'src/app/services/user/email.service';
 import { Modal } from '../modal/modal';
 
 @Component({
@@ -15,7 +14,7 @@ export class ForgotPassswordComponent implements OnInit {
   title:string="";
   description:string="";
 
-  constructor(private fb: FormBuilder, private emailService: EmailService) {
+  constructor(private fb: FormBuilder) {
     this.createForm();
   }
 
@@ -42,6 +41,5 @@ export class ForgotPassswordComponent implements OnInit {
 
   onSendEmail():void{
     this.email = this.pageFormForgotPassword.controls['Email'].value;
-    this.emailService.onSendEmail(this.email);
   }
 }

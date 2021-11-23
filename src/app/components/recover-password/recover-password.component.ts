@@ -40,7 +40,5 @@ export class RecoverPasswordComponent implements OnInit {
   onUpdatePassword():void{
     this.email = this.pageFormRecoverPassword.controls['Email'].value;
     this.password = this.pageFormRecoverPassword.controls['PasswordConfirm'].value;
-
-    this.userService.onUpdatePassword(this.email,this.password);
   }
 }

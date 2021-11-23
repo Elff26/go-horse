@@ -16,7 +16,7 @@ export class CarService {
     const formData = new FormData();
     formData.append('productId', product.codigo.toString());
     formData.append('price', product.valor.toString());
-    formData.append('quantity', product.qtd.toString());
+    formData.append('quantity', quantidade.toString());
 
     this.http.post<any>(`http://localhost:80/go-horse/backend/car.php`, formData).subscribe((res) => {
       this.onCarProducts.next([...this.carProducts, { 
@@ -37,6 +37,7 @@ export class CarService {
 
   onGetProducts(id: number) {
     this.http.get<any>(`http://localhost:80/go-horse/backend/car.php?id=${id}`).subscribe((res) => {
+      console.log(res);
       this.carProducts = res;
       this.onCarProducts.next(res);
     });
