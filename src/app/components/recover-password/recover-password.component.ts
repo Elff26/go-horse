@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user/user.service';
 import { ConfirmedValidator } from '../login/validatorPassword';
+import { Modal } from '../modal/modal';
 
 @Component({
   selector: 'app-recover-password',
@@ -13,6 +14,8 @@ export class RecoverPasswordComponent implements OnInit {
   pageFormRecoverPassword: FormGroup = new FormGroup({});
   email:string="";
   password:string="";
+  title:string="";
+  description:string="";
 
   constructor(private fb: FormBuilder, private userService: UserService) {
     this.createForm();
@@ -37,9 +40,18 @@ export class RecoverPasswordComponent implements OnInit {
     });
   }
 
+  onClick(info: Modal){
+    info.title = "Sucesso",
+    info.description = "Sua senha foi alterada com sucesso!",
+    info.textButton = "Okay",
+    info.href = "/login"
+  }
+
   onUpdatePassword():void{
     this.email = this.pageFormRecoverPassword.controls['Email'].value;
     this.password = this.pageFormRecoverPassword.controls['PasswordConfirm'].value;
+
+    console.log("UpdatePassword",this.email,this.password);
 
     this.userService.onUpdatePassword(this.email,this.password);
   }

@@ -51,9 +51,16 @@ export class UserService {
     this.http.post<any>(`http://localhost:80/go-horse/backend/user.php`, formData).subscribe(response => {
       this.title = response.Title;
       this.onModal.next(this.title);
-
-      console.log("Dentro",this.modal.Description);
     });
-    console.log("Fora",this.modal.Description);
+  }
+
+  onUpdatePassword(email:string,password:string):void{
+    const formData = new FormData();
+    formData.append('email',email);
+    formData.append('password',password);
+
+    this.http.post<any>(`http://localhost:80/go-horse/backend/recover-password.php`, formData).subscribe(response => {
+      console.log(response);
+    });
   }
 }

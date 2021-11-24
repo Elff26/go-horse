@@ -42,6 +42,7 @@ export class ForgotPassswordComponent implements OnInit {
 
   onSendEmail():void{
     this.email = this.pageFormForgotPassword.controls['Email'].value;
+    console.log("UpdatePassword",this.email);
     this.emailService.onSendEmail(this.email);
   }
 }
