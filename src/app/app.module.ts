@@ -17,11 +17,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { MyCarComponent } from './components/my-car/my-car.component';
 import { LoginComponent } from './components/login/login.component';
-import { ForgotPassswordComponent } from './components/forgot-passsword/forgot-passsword.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './components/modal/modal.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
+import { ForgotPassswordComponent } from './components/forgot-passsword/forgot-passsword.component';
 
 
 @NgModule({

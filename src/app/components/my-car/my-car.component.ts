@@ -1,7 +1,7 @@
-import { SourceMapGenerator } from '@angular/compiler/src/output/source_map';
 import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { CarService } from 'src/app/services/car/car.service';
 import { Modal } from '../modal/modal';
-import { Products } from './products';
 
 @Component({
   selector: 'app-my-car',
@@ -9,11 +9,18 @@ import { Products } from './products';
   styleUrls: ['./my-car.component.css', '../../app.component.css']
 })
 export class MyCarComponent implements OnInit {
+  private carSubscription: Subscription = Subscription.EMPTY;
+  public products: any = [];
 
-  constructor() {
-   }
+  constructor(private carService: CarService) {
+  }
 
   ngOnInit(): void {
+    this.carService.onGetProducts(1);
+
+    this.carSubscription = this.carService.getCarProductsUpdated().subscribe(products => {
+      this.products = products;
+    });
   }
 
   onClick(info: Modal){
@@ -21,5 +28,9 @@ export class MyCarComponent implements OnInit {
     info.description = "Você finalizou sua compra! Nós encaminharemos um email com a confirmação da sua compra e falando sobre os próximos passos.",
     info.textButton = "Okay",
     info.href = "/"
+  }
+
+  onDeleteProduct(id: number) {
+    this.carService.onRemoveProduct(id);
   }
 }

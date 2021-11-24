@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +39,7 @@ export class UserService {
     return this.onAuth.asObservable();
   }
 
-  onInsertUser(name:string,surname:string,email:string,password:string,phone:string,cpf:string):void{
+  onInsertUser(name:string,surname:string,email:string,password:string,phone:string,cpf:string): Observable<any>{
     const formData = new FormData();
     formData.append('name',name);
     formData.append('surname',surname);
