@@ -5,3 +5,27 @@
 .icon-delete {
     cursor: pointer;
 }
+
+.total {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.total-price {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.table-content {
+    overflow-x: auto;
+}
+
+.table {
+    max-width: 90vw;
+}
+
+.group-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

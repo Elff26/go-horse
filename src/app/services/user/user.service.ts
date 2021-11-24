@@ -6,12 +6,10 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  private userLogged: any = {};
   private onAuth = new Subject<boolean>();
   private onModal = new Subject<string>();
-  private modal:{Title:string,Description:string} = {Title:"",Description:""};
   logged: boolean = false;
-  private description:string="";
-  private title:string="";
 
   constructor(private http: HttpClient) { }
 
@@ -19,8 +17,17 @@ export class UserService {
     return this.onModal.asObservable();
   }
 
-  onLogin() {
+  onLogin(email:string, password:string) {
     this.logged = true;
+
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('senha', password);
+    
+    this.http.post<any>('http://localhost:80/go-horse/backend/user.php', formData).subscribe(response => {
+      localStorage.setItem('user', JSON.stringify(response));
+      this.userLogged = response;
+    });
 
     this.onAuth.next(this.logged);
   }
@@ -28,9 +35,16 @@ export class UserService {
   getAuth() {
     return this.logged;
   }
+  
+  setAuth(auth: boolean) {
+    this.logged = auth;
+    this.onAuth.next(this.logged);
+  }
 
   onLogout() {
     this.logged = false;
+
+    this.http.post<any>(`http://localhost:80/go-horse/backend/logout.php`, null).subscribe();
 
     this.onAuth.next(this.logged);
   }
@@ -57,5 +71,13 @@ export class UserService {
     formData.append('password',password);
 
     return this.http.post<any>(`http://localhost:80/go-horse/backend/recover-password.php`, formData);
+  }
+
+  getUserLogged() {
+    return this.userLogged;
+  }
+
+  setUserLogged(user: any) {
+    this.userLogged = user;
   }
 }

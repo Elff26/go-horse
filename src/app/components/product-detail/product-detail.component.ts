@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { CarService } from 'src/app/services/car/car.service';
 import { ProductService } from 'src/app/services/product/product.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,6 +11,7 @@ import { ProductService } from 'src/app/services/product/product.service';
 })
 export class ProductDetailComponent implements OnInit {
 
+  private userLogged: any;
   private codigo: any; 
   public product: any;
   public quantidade: number = 1;
@@ -17,9 +19,12 @@ export class ProductDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, 
               private productService: ProductService, 
               private carService: CarService,
-              private router: Router) { }
+              private router: Router,
+              private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userLogged = this.userService.getUserLogged();
+
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if(paramMap.has('codigo')) {
         this.codigo = paramMap.get('codigo');
@@ -30,8 +35,13 @@ export class ProductDetailComponent implements OnInit {
   }
 
   insertProduct() {
-    this.carService.onInsertProduct(this.product, this.quantidade);
+    if(this.userLogged.codigo) {
+      this.carService.onInsertProduct(this.userLogged.codigo, this.product, this.quantidade);
 
-    this.router.navigate(['my-car']);
+      this.router.navigate(['my-car']);
+    } else {
+      this.router.navigate(['login']);
+    }
+    
   }
 }

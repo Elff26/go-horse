@@ -34,7 +34,10 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    this.userService.onLogin();
+    this.userService.onLogin(
+      this.pageForm.controls['Email'].value,
+      this.pageForm.controls['Password'].value
+    );
     this.route.navigate(['home']);
   }
 

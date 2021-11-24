@@ -12,8 +12,9 @@ export class CarService {
 
   constructor(private http: HttpClient) { }
 
-  onInsertProduct(product: any, quantidade: number) {
+  onInsertProduct(userId: number, product: any, quantidade: number) {
     const formData = new FormData();
+    formData.append('userId', userId.toString());
     formData.append('productId', product.codigo.toString());
     formData.append('price', product.valor.toString());
     formData.append('quantity', quantidade.toString());
@@ -37,7 +38,6 @@ export class CarService {
 
   onGetProducts(id: number) {
     this.http.get<any>(`http://localhost:80/go-horse/backend/car.php?id=${id}`).subscribe((res) => {
-      console.log(res);
       this.carProducts = res;
       this.onCarProducts.next(res);
     });

@@ -5,13 +5,17 @@
   if(isset($_SERVER['REQUEST_METHOD'])) {
     switch ($_SERVER['REQUEST_METHOD']) {
         case 'GET':
-            //To get 1 product
             break;
         case 'POST':
-            onInsertUser();
+            if(isset($_POST['name'])) {
+              onInsertUser();
+            }
+            else {
+              onLoginUser();
+            }
             break;
     }
-}
+  }
 
   function onInsertUser(){
     $con = new mysqli("localhost", "root", "", "gohorse");
@@ -47,5 +51,29 @@
     $sql = "SELECT COUNT(1) FROM gohorse.cliente WHERE email LIKE '%$email%'";
 
     return mysqli_fetch_assoc(mysqli_query($con, $sql));
+  }
+
+  function onLoginUser(){
+    $con = new mysqli("localhost", "root", "", "gohorse");
+
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    
+    $sql = "SELECT codigo, nome, sobrenome, email FROM cliente WHERE email = '$email' AND senha = md5('$senha')";
+
+    $retorno = mysqli_query($con, $sql);
+
+    if($reg = mysqli_fetch_assoc($retorno)) {
+      session_start();
+
+      $_SESSION["sessionId"] = session_id();
+      $_SESSION["userId"] = $reg["codigo"];
+      $_SESSION["email"] = $reg["email"];
+      $_SESSION["name"] = $reg["nome"];
+      $_SESSION["email"] = $reg["email"];
+
+      echo json_encode($reg);
+    }
+
   }
 ?>

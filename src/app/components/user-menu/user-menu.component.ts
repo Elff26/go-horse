@@ -15,6 +15,12 @@ export class UserMenuComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('user')) {
+      this.userService.setAuth(true);
+      
+      this.userService.setUserLogged(JSON.parse(localStorage.getItem('user') || '{}'));
+    }
+
     this.logged = this.userService.getAuth();
 
     this.authSubscription = this.userService.getAuthUpdated().subscribe((status) => {
