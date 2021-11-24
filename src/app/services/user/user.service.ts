@@ -44,6 +44,8 @@ export class UserService {
   onLogout() {
     this.logged = false;
 
+    localStorage.clear();
+    
     this.http.post<any>(`http://localhost:80/go-horse/backend/logout.php`, null).subscribe();
 
     this.onAuth.next(this.logged);

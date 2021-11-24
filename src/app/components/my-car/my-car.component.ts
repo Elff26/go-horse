@@ -24,6 +24,8 @@ export class MyCarComponent implements OnInit {
     this.carService.onGetProducts(this.userLogged.codigo);
 
     this.carSubscription = this.carService.getCarProductsUpdated().subscribe(products => {
+      this.total = 0;
+      
       this.products = products;
       
       products.forEach((product) => this.total += Number(product.valorTotal));
