@@ -48,19 +48,14 @@ export class UserService {
     formData.append('phone',phone);
     formData.append('cpf',cpf);
 
-    this.http.post<any>(`http://localhost:80/go-horse/backend/user.php`, formData).subscribe(response => {
-      this.title = response.Title;
-      this.onModal.next(this.title);
-    });
+    return this.http.post<any>(`http://localhost:80/go-horse/backend/user.php`, formData);
   }
 
-  onUpdatePassword(email:string,password:string):void{
+  onUpdatePassword(email:string,password:string):Observable<any>{
     const formData = new FormData();
     formData.append('email',email);
     formData.append('password',password);
 
-    this.http.post<any>(`http://localhost:80/go-horse/backend/recover-password.php`, formData).subscribe(response => {
-      console.log(response);
-    });
+    return this.http.post<any>(`http://localhost:80/go-horse/backend/recover-password.php`, formData);
   }
 }

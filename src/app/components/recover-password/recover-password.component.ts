@@ -12,6 +12,7 @@ import { Modal } from '../modal/modal';
 export class RecoverPasswordComponent implements OnInit {
 
   pageFormRecoverPassword: FormGroup = new FormGroup({});
+  modal: Modal = new Modal();
   email:string="";
   password:string="";
   title:string="";
@@ -41,18 +42,21 @@ export class RecoverPasswordComponent implements OnInit {
   }
 
   onClick(info: Modal){
-    info.title = "Sucesso",
-    info.description = "Sua senha foi alterada com sucesso!",
-    info.textButton = "Okay",
-    info.href = "/login"
+    this.modal = info;
   }
 
   onUpdatePassword():void{
     this.email = this.pageFormRecoverPassword.controls['Email'].value;
     this.password = this.pageFormRecoverPassword.controls['PasswordConfirm'].value;
 
-    console.log("UpdatePassword",this.email,this.password);
+    this.userService.onUpdatePassword(this.email,this.password).subscribe((response) => {
+      this.title = response.Title;
+      this.description = response.Description;
 
-    this.userService.onUpdatePassword(this.email,this.password);
+      this.modal.title = this.title;
+      this.modal.description = this.description;
+      this.modal.textButton = "Okay";
+      this.modal.href = "/login";
+    });
   }
 }

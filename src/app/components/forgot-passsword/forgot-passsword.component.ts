@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmailService } from 'src/app/services/user/email.service';
 import { Modal } from '../modal/modal';
 
 @Component({
@@ -10,11 +11,12 @@ import { Modal } from '../modal/modal';
 export class ForgotPassswordComponent implements OnInit {
 
   pageFormForgotPassword: FormGroup = new FormGroup({});
+  modal: Modal = new Modal();
   email:string="";
   title:string="";
   description:string="";
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private emailService:EmailService) {
     this.createForm();
   }
 
@@ -33,15 +35,22 @@ export class ForgotPassswordComponent implements OnInit {
   }
 
   onClick(info: Modal){
-    info.title = "Sucesso",
-    info.description = "Um email para recuperação de senha foi encaminhado para você, verifique sua caixa de entrada ou span!",
-    info.textButton = "Okay",
-    info.href = "/login"
+    this.modal = info;
   }
 
   onSendEmail():void{
     this.email = this.pageFormForgotPassword.controls['Email'].value;
-    console.log("UpdatePassword",this.email);
-    this.emailService.onSendEmail(this.email);
+
+    this.emailService.onSendEmail(this.email).subscribe((response)=>{
+      this.title = response.Title;
+      this.description = response.Description;
+
+      this.modal.title = this.title;
+      this.modal.description = this.description;
+      this.modal.textButton = "Okay";
+      this.modal.href = "/login";
+
+      console.log(response);
+    });
   }
 }
