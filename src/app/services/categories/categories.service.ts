@@ -9,16 +9,16 @@ export class CategoriesService {
       category: "PNEUS",
       subcategories: [
         {
-          subcategory: "Carro de Passeio"
+          subcategory: "Pneu Carro"
         },
         {
-          subcategory: "Moto"
+          subcategory: "Pneu Moto"
         },
         {
-          subcategory: "Van"
+          subcategory: "Pneu Van"
         },
         {
-          subcategory: "Quadriciclo"
+          subcategory: "Pneu Quadriciclo"
         }
       ]
     },
